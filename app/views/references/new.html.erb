@@ -1,0 +1,17 @@
+<div class='well'>
+  <%= form_for(@reference) do |f| %>
+    <dl>
+      <dt><%= f.label :name %></dt>
+      <dd><%= f.text_field :name %></dd>
+      <dd><%= f.submit 'Create Reference', class: 'btn btn-success' %></dd>
+    </dl>
+  <% end %>
+</div>
+
+<h2>References</h2>
+
+<ul class='references'>
+  <% @references.each do |ref| %>
+    <%= render 'reference', reference: ref %>
+  <% end %>
+</ul>

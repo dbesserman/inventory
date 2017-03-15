@@ -33,10 +33,10 @@
             </button>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">
+                <%= link_to new_reference_path do %>
                   <span class='glyphicon glyphicon-plus'></span>
                   Create Product Reference
-                </a>
+                <% end %>
               </li>
               <li>
                 <a href="#">
@@ -50,6 +50,12 @@
       </div>
     </nav>
 
-    <%= yield %>
+    <div  class='container'>
+      <% flash.each do |k, v| %>
+        <div class="alert alert-<%= k %>"><%= v %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
