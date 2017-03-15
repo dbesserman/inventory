@@ -16,6 +16,40 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="btn btn-default navbar-btn history">
+            <a href='#'>
+              <span class='glyphicon glyphicon-list-alt'></span>
+              History
+            </a>
+          </button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-info">Actions</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <span class='glyphicon glyphicon-plus'></span>
+                  Create Product Reference
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class='glyphicon glyphicon-sort'></span>
+                  Stock Movement
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
