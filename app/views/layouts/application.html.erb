@@ -16,39 +16,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="btn btn-default navbar-btn history">
-            <%= link_to movements_path do %>
-              <span class='glyphicon glyphicon-list-alt'></span>
-              History
-            <% end %>
-          </button>
-          <div class="btn-group">
-            <button type="button" class="btn btn-info">Actions</button>
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to new_reference_path do %>
-                  <span class='glyphicon glyphicon-plus'></span>
-                  Create Product Reference
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_movement_path do %>
-                  <span class='glyphicon glyphicon-sort'></span>
-                  Register Stock Movement
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <%= render 'shared/navbar' %>
 
     <div  class='container'>
       <%= render 'shared/flash' %>

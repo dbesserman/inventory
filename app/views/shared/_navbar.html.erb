@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <ul class='navigations'>
+        <li>
+          <button type="button" class="btn btn-default navbar-btn">
+            <%= link_to items_path do %>
+              <span class='glyphicon glyphicon-barcode'></span>
+              Items
+            <% end %>
+          </button>
+        </li>
+
+        <li>
+          <button type="button" class="btn btn-default navbar-btn">
+            <%= link_to movements_path do %>
+              <span class='glyphicon glyphicon-list-alt'></span>
+              History
+            <% end %>
+          </button>
+        </li>
+
+        <li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-info">Actions</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to new_reference_path do %>
+                  <span class='glyphicon glyphicon-plus'></span>
+                  Create Product Reference
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_movement_path do %>
+                  <span class='glyphicon glyphicon-sort'></span>
+                  Register Stock Movement
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
