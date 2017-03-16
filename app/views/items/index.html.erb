@@ -1,0 +1,14 @@
+<h3>Available Items</h3>
+<ul>
+  <% @available_items.each do |item| %>
+    <%= render 'item', item: item %>
+  <% end %>
+</ul>
+
+<h3>Booked Items</h3>
+<ul>
+  <% @booked_items.each do |item| %>
+    <%= render 'item', item: item %>
+  <% end %>
+</ul>
+

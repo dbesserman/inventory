@@ -1,0 +1,13 @@
+<li>
+  <span><%= item.id %></span>
+  <span><%= item.reference.name %></span>
+  <% if item.booked %>
+    <span>booked</span>
+  <% else %>
+    <button clas='btn btn-success'>
+      <%= link_to book_item_path(item.id), method: 'post' do %>
+        Book
+      <% end %>
+    </button>
+  <% end %>
+</li>
