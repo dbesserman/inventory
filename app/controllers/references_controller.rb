@@ -5,15 +5,20 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    @ref = Reference.new(reference_params)
+    @reference = Reference.new(reference_params)
+    @references = Reference.all
 
-    if @ref.save
+    if @reference.save
       flash['success'] = 'Reference successfully created'
       redirect_to root_path
     else
       flash['error'] = 'The reference could not have been created'
       render :new
     end
+  end
+
+  def index
+    
   end
 
   private

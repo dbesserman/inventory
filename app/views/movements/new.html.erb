@@ -1,0 +1,17 @@
+<div class='well'>
+  <%= form_tag(movements_path) do %>
+    <dl>
+      <dt><%= label_tag 'reference_id', 'Reference' %></dt>
+      <dd><%= select_tag 'reference_id', options_from_collection_for_select(@references, 'id', 'name') %></dd>
+      <dt><%= label_tag 'quantity' %></dt>
+      <dd><%= number_field_tag 'quantity', '1', min: 1 %></dd>
+      <dt>Comming</dt>
+      <dd class='radio'>
+        <label><%= radio_button_tag 'direction', 'in' %>In</label>
+        <label><%= radio_button_tag 'direction', 'out' %>out</label>
+      </dd>
+    </dl>
+
+    <%= submit_tag 'Register', class: 'btn btn-success' %>
+  <% end %>
+</div>

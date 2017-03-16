@@ -1,0 +1,8 @@
+<tr>
+  <td><%= movement.reference.name %></td>
+  <td><%= movement.comming_in? ? 'in' : 'out' %></td>
+  <td><%= movement.quantity %></td>
+  <td><%= movement.booked? ? 'yes' : 'no' %></td>
+  <td><%= movement.created_at %></td>
+  <td><%= movement.updated_at %></td>
+</tr>

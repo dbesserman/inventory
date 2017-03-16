@@ -3,6 +3,32 @@
   margin-right: 25px;
 }
 
-form dd + dd {
-  margin-top: 25px;
+form {
+  dd + dd {
+    margin-top: 25px;
+  }
+
+  dt {
+    margin-top: 10px;
+  }
+}
+
+.radio label {
+  margin-right: 20px;
+}
+
+.alert-error {
+  background: #fa8072;
+}
+
+table {
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-spacing: 5em;
+
+  td,
+  th {
+    text-align: center;
+    padding: 10px;
+  }
 }
