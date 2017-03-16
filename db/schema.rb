@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315145145) do
+ActiveRecord::Schema.define(version: 20170316101253) do
 
   create_table "movements", force: :cascade do |t|
-    t.boolean  "booked"
     t.boolean  "comming_in"
     t.integer  "quantity"
     t.integer  "reference_id"

@@ -17,10 +17,6 @@ class ReferencesController < ApplicationController
     end
   end
 
-  def index
-    
-  end
-
   private
 
   def reference_params
