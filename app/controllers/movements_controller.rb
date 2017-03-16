@@ -9,6 +9,7 @@ class MovementsController < ApplicationController
   end
 
   def create
+    @references = Reference.all
     @movement = Movement.new(movement_params)
 
     if @movement.save
