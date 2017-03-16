@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @available_items = Item.available
-    @booked_items = Item.booked
+    @items_in_stock = Item.in_stock
   end
 
   def book

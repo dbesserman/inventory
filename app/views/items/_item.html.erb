@@ -1,13 +1,15 @@
-<li>
-  <span><%= item.id %></span>
-  <span><%= item.reference.name %></span>
+<tr>
+  <td><%= item.id %></td>
+  <td><%= item.reference.name %></td>
+  <td>
   <% if item.booked %>
-    <span>booked</span>
+    booked
   <% else %>
-    <button clas='btn btn-success'>
+    <button class='btn btn-success btn-xs'>
       <%= link_to book_item_path(item.id), method: 'post' do %>
         Book
       <% end %>
     </button>
   <% end %>
-</li>
+  </td>
+</tr>

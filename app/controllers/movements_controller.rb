@@ -1,18 +1,19 @@
 class MovementsController < ApplicationController
+  before_action :set_references, only: [:new, :create]
+
   def index
     @movements = Movement.all
   end
 
   def new
     @movement = Movement.new
-    @references = Reference.all
   end
 
   def create
-    @references = Reference.all
     @movement = Movement.new(movement_params)
 
     if @movement.save
+      Item.process(@movement)
       flash[:success] = 'Movement successfully registered'
       redirect_to movements_path
     else
@@ -22,6 +23,10 @@ class MovementsController < ApplicationController
   end
 
   private
+
+  def set_references
+    @references = Reference.all
+  end
 
   def movement_params
     {

@@ -1,12 +1,12 @@
 class ReferencesController < ApplicationController
+  before_action :set_references
+
   def new
     @reference = Reference.new
-    @references = Reference.all
   end
 
   def create
     @reference = Reference.new(reference_params)
-    @references = Reference.all
 
     if @reference.save
       flash['success'] = 'Reference successfully created'
@@ -18,6 +18,10 @@ class ReferencesController < ApplicationController
   end
 
   private
+
+  def set_references
+    @references = Reference.all
+  end
 
   def reference_params
     params.require(:reference).permit(:name)
