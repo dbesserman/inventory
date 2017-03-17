@@ -13,7 +13,6 @@ class MovementsController < ApplicationController
     @movement = Movement.new(movement_params)
 
     if @movement.save
-      Item.process(@movement)
       flash[:success] = 'Movement successfully registered'
       redirect_to movements_path
     else

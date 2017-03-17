@@ -2,6 +2,8 @@ class Movement < ActiveRecord::Base
   belongs_to :reference
   has_many :items
 
+  after_create :process_items
+
   validate :must_have_enough_items_in_stock, if: :outgoing?
 
   def comming_in?
@@ -9,6 +11,12 @@ class Movement < ActiveRecord::Base
   end
 
   private
+
+  def process_items
+    # Every stock comming in leads to a creation of items 
+    # Every stock item going out leads to a modification of these items state
+    Item.process(self)
+  end
 
   def outgoing?
     !comming_in
