@@ -1,15 +1,18 @@
 <tr>
   <td><%= item.id %></td>
-  <td><%= item.reference.name %></td>
+  <td><%= item.reference.name.capitalize %></td>
   <td>
-  <% if item.booked %>
-    booked
-  <% else %>
-    <button class='btn btn-success btn-xs'>
-      <%= link_to book_item_path(item.id), method: 'post' do %>
-        Book
-      <% end %>
-    </button>
-  <% end %>
+    <% if item.booked %>
+      booked
+    <% else %>
+      <button class='btn btn-success btn-xs'>
+        <%= link_to book_item_path(item.id), method: 'post' do %>
+          Book
+        <% end %>
+      </button>
+    <% end %>
   </td>
+  <% if show_stock_status %>
+    <td><%= item.in_stock? ? 'yes' : 'no' %> </td>
+  <% end %>
 </tr>

@@ -6,9 +6,12 @@
       <th>id</th>
       <th>item</th>
       <th>booking</th>
+      <% if show_stock_status %>
+        <th>In stock</th>
+      <% end %>
     </tr>
     <% items.each do |item| %>
-      <%= render 'items/item', item: item %>
+      <%= render 'items/item', item: item, show_stock_status: show_stock_status %>
     <% end %>
   </table>
 <% end %>

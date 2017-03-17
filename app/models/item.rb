@@ -22,7 +22,7 @@ class Item < ActiveRecord::Base
     if movement.comming_in?
       add_to_stock(movement.id, movement.quantity)
     else 
-      remove_from_stock(movement.id, movement.quantity)
+      remove_from_stock(movement.reference_id, movement.quantity)
     end
   end
 
@@ -34,8 +34,9 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def self.remove_from_stock(mov_id, q)
-    items = available.limit(q)
+  def self.remove_from_stock(reference_id, q)
+    reference = Reference.find(reference_id)
+    items = reference.items.limit(q)
 
     items.each do |item|
       item.in_stock = false

@@ -7,7 +7,7 @@ class Movement < ActiveRecord::Base
   validate :must_have_enough_items_in_stock, if: :outgoing?
 
   def comming_in?
-    comming_in ? true : false
+    comming_in
   end
 
   private
