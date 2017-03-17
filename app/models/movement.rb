@@ -4,6 +4,9 @@ class Movement < ActiveRecord::Base
 
   after_create :process_items
 
+  validates :quantity, presence: true, numericality: { only_integer: true }
+  validates :comming_in, presence: true
+  validates_associated :reference
   validate :must_have_enough_items_in_stock, if: :outgoing?
 
   def comming_in?

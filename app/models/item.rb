@@ -2,6 +2,9 @@ class Item < ActiveRecord::Base
   belongs_to :movement
   has_one :reference, through: :movement
 
+  validates :in_stock, presence: true
+  validates_associated :movement
+
   def self.available(n=nil)
     if n
       where(in_stock: true, booked: false).limit(n)
