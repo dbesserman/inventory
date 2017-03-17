@@ -1,5 +1,6 @@
 class ReferencesController < ApplicationController
-  before_action :set_references
+  before_action :set_references, except: [:movements, :items]
+  before_action :set_reference, only: [:movements, :items]
 
   def new
     @reference = Reference.new
@@ -17,10 +18,18 @@ class ReferencesController < ApplicationController
     end
   end
 
+  def movements; end
+
+  def items; end
+
   private
 
   def set_references
     @references = Reference.all
+  end
+
+  def set_reference
+    @reference = Reference.find(params[:id])
   end
 
   def reference_params

@@ -1,0 +1,16 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'forms/form_action_binding' %>
+<% end %>
+
+<div class='container'>
+  <div class='well'>
+    <h3>Search by reference</h3>
+    <%= form_tag '' do %>
+      <dl class='search'>
+        <dt><%= label_tag 'reference_id', 'Reference' %></dt>
+        <dd><%= select_tag 'reference_id', options_from_collection_for_select(references, 'id', 'name') %></dd>
+        <dd><%= submit_tag 'Search', class: 'btn btn-primary btn-xs' %></dd>
+      </dl>
+    <% end %>
+  </div>
+<div>

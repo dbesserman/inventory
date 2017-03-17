@@ -8,6 +8,17 @@ form {
   }
 }
 
+.search {
+  dd {
+    display: inline-block;
+    margin-top: 0;
+
+    & + dd {
+      margin-left: 25px;
+    }
+  }
+}
+
 .radio label {
   margin-right: 20px;
 }
@@ -17,7 +28,7 @@ form {
 }
 
 table {
-  margin: 0 auto;
+  margin: 50px auto;
   border: 1px solid grey;
   border-spacing: 5em;
 
@@ -29,7 +40,7 @@ table {
 }
 
 table.items {
-  margin: 0;
+  margin: 0 0 0 40px;
 
   a {
     color: #fff;
@@ -44,4 +55,12 @@ table.items {
     display:inline-block;
     margin-left: 20px;
   }
+}
+
+h3 {
+  margin-left: 75px;
+}
+
+.well h3 {
+  margin-left: 0;
 }

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
 
-  resources :references, only: [:new, :create]
+  resources :references, only: [:new, :create] do
+    member do
+      get :movements
+      get :items
+    end
+  end
 
   resources :movements, only: [:index, :new, :create]
 

@@ -1,12 +1,2 @@
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Direction</th>
-    <th>Quantity</th>
-    <th>Entry Date</th>
-    <th>Last Update</th>
-  </tr>
-  <% @movements.each do |movement| %>
-    <%= render 'movement', movement: movement %>
-  <% end %>
-</table>
+<%= render 'shared/search_by_reference', references: @references, filtered: 'movements' %>
+<%= render 'movements', movements: @movements %>

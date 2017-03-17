@@ -1,0 +1,14 @@
+<% if items.empty? %>
+  <p class='no-math'>No match found</p>
+<% else %>
+  <table class='items'>
+    <tr>
+      <th>id</th>
+      <th>item</th>
+      <th>booking</th>
+    </tr>
+    <% items.each do |item| %>
+      <%= render 'items/item', item: item %>
+    <% end %>
+  </table>
+<% end %>

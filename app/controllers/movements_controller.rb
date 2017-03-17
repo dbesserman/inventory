@@ -1,5 +1,5 @@
 class MovementsController < ApplicationController
-  before_action :set_references, only: [:new, :create]
+  before_action :set_references
 
   def index
     @movements = Movement.all
