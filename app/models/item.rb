@@ -47,7 +47,6 @@ class Item < ActiveRecord::Base
 
     items.each do |item|
       item.in_stock = false
-      binding.pry
       item.save
     end
   end

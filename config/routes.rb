@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#index'
+  root to: 'movements#index'
 
   resources :references, only: [:new, :create] do
     member do
