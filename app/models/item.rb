@@ -2,7 +2,6 @@ class Item < ActiveRecord::Base
   belongs_to :movement
   has_one :reference, through: :movement
 
-  validates :in_stock, presence: true
   validates_associated :movement
 
   def self.available(n=nil)
@@ -44,10 +43,11 @@ class Item < ActiveRecord::Base
 
   def self.remove_from_stock(reference_id, q)
     reference = Reference.find(reference_id)
-    items = reference.items.limit(q)
+    items = reference.items.where(in_stock: true).limit(q)
 
     items.each do |item|
       item.in_stock = false
+      binding.pry
       item.save
     end
   end
