@@ -29,6 +29,11 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def booked?
+    # for the sake of conventions...
+    booked
+  end
+
   private
 
   def self.add_to_stock(mov_id, q)
