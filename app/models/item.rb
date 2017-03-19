@@ -12,6 +12,13 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def self.enough?(reference_id, q)
+    available_count = available.joins(movement: :reference)
+                        .merge(Reference.where(id: reference_id)).count
+
+    available_count >= q
+  end
+
   def self.in_stock
     where(in_stock: true)
   end
@@ -42,12 +49,13 @@ class Item < ActiveRecord::Base
   end
 
   def self.remove_from_stock(reference_id, q)
-    reference = Reference.find(reference_id)
-    items = reference.items.where(in_stock: true).limit(q)
+    Item.joins(movement: :reference).merge(Reference.where(id: reference_id))
+      .where(in_stock: true).limit(q)
+      .update_all(in_stock: false)
 
-    items.each do |item|
-      item.in_stock = false
-      item.save
-    end
+    # reference = Reference.find(reference_id)
+    # items = reference.items.where(in_stock: true).limit(q)
+    
+    # items.each { |item| item.update(in_stock: false) }
   end
 end
