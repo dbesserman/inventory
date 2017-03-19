@@ -5,10 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def book
-    item = Item.find(params[:id])
-    item.booked = true
-    item.save
-
+    Item.find(params[:id]).update(booked: true)
     redirect_to items_path
   end
 
