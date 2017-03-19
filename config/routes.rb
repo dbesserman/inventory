@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :movements, only: [:index, :new, :create]
+  post '/movements/filter', to: 'movements#filter'
 
   resources :items, only: [:index] do
     member do
       post 'book'
     end
   end
+  post '/items/filter', to: 'items#filter'
 end

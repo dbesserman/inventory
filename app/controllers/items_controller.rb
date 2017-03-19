@@ -11,4 +11,9 @@ class ItemsController < ApplicationController
 
     redirect_to items_path
   end
+
+  def filter
+    id = params[:reference_id]
+    redirect_to items_reference_path(id)
+  end
 end

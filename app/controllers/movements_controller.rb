@@ -21,6 +21,11 @@ class MovementsController < ApplicationController
     end
   end
 
+  def filter
+    id = params[:reference_id]
+    redirect_to movements_reference_path(id)
+  end
+
   private
 
   def set_references
